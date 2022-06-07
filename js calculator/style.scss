@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css?family=Fira+Mono&display=swap");
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	background-color: #98ddc6;
+	font-family: "Fira Mono", monospace, sans-serif;
+	font-size: 25px; 
+}
+
+body{
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+@mixin shadow {
+    box-shadow: -6px -6px 9px rgb(80, 150, 138), 6px 6px 9px rgba(rgb(26, 25, 25), 0.4);
+}
+
+@mixin inset-shadow {
+    box-shadow: inset -6px -6px 9px rgb(80, 150, 138), inset 6px 6px 9px rgba(rgb(26, 25, 25), 0.4);
+}
+
+main{
+	@include shadow;
+	padding: 2rem;
+	border-radius: 5px;
+
+	input, button{
+		outline: none;
+	}
+
+	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button{
+		-webkit-appearance:none;
+	}
+
+	input[type = "number"]{
+		-moz-appearance:textfield;
+    }
+    
+    input{
+        @include inset-shadow;
+        width: 320px;
+        height: 60px;
+        padding: 16px 32px;
+        text-align: right;
+        border: none;
+        border-radius: 5px;
+        //text-shadow: -1px -1px 2px rgb(160, 197, 180), 2px 2px 2px rgba(#000, 0.4);
+
+	}
+	
+	.keys{
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-gap: 0.8rem;
+		margin-top: 20px;
+	}
+
+	button{
+		@include shadow;
+		width: 60px;
+		height: 60px;
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+		background: #98ddc6;
+
+		&:hover, &:active{
+			background-color: #87e9c8;
+		}
+		&:active{
+			@include inset-shadow;
+		}
+
+		
+	}
+
+	// .funcKey, .equalKey{
+	// 	color: #ff625f;
+	// }
+}
